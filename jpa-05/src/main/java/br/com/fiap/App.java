@@ -18,10 +18,9 @@ public class App {
         Aluno aluno3 = new Aluno("Aluno3", "33333", "333.333.333-33", LocalDate.of(1980, 1, 1));
         alunoService.inserir(new Aluno("Aluno1", "11111", "111.111.111-11", LocalDate.of(1980, 1, 1)));
         alunoService.inserir(new Aluno("Aluno2", "22222", "222.222.222-22", LocalDate.of(1980, 1, 1)));
-        alunoService.inserir(aluno3);
 
-        Endereco endereco = new Endereco("Av. Paulista", 777, "5 andar", "Bela Vista",
-                "São Paulo", "SP", "04566-333");
+        Endereco endereco = new Endereco("Av. Paulista", 777, "07195-010", "5 andar",
+                "Bela Vista","São Paulo", "SP");
 
         alunoService.inserirComEndereco(aluno3, endereco);
 
@@ -29,5 +28,8 @@ public class App {
         disciplinaService.inserir(new Disciplina("História", 4000));
         disciplinaService.inserir(new Disciplina("Física", 3000));
         disciplinaService.inserir(disciplina3);
+
+        Aluno aluno = alunoService.obter(3L);
+        System.out.println(aluno);
     }
 }

@@ -5,23 +5,12 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.SequenceGenerator;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @Table(name = "tb_aluno")
 @SequenceGenerator(name = "aluno", sequenceName = "SQ_TB_ALUNO", allocationSize = 1)
 public class Aluno implements Serializable {
-
-    /**
-     *
-     */
-    private static final long serialVersionUID = 1L;
 
     public Aluno() {
         this.ativo = true;
@@ -61,6 +50,9 @@ public class Aluno implements Serializable {
 
     @Column(name = "dt_atualizacao")
     private LocalDateTime dataAtualizacao;
+
+    @OneToOne(mappedBy = "aluno")
+    private Endereco endereco;
 
     public Long getId() {
         return id;
@@ -126,13 +118,22 @@ public class Aluno implements Serializable {
         this.dataAtualizacao = dataAtualizacao;
     }
 
+    public Endereco getEndereco() {
+        return endereco;
+    }
+
+    public void setEndereco(Endereco endereco) {
+        this.endereco = endereco;
+    }
+
     @Override
     public String toString() {
 
         return "\nMatricula: " + this.getMatricula()
                 + "\nNome: " + this.getNome()
                 + "\nCPF: " + this.getCpf()
-                + "\nNascimento: " + this.getDataNascimento().format(DateTimeFormatter.ofPattern("dd/MM/yyyy"));
+                + "\nNascimento: " + this.getDataNascimento().format(DateTimeFormatter.ofPattern("dd/MM/yyyy"))
+                + "\nEndereço: " + this.getEndereco();
     }
 
 }

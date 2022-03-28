@@ -64,7 +64,7 @@ public class Endereco implements Serializable {
     private LocalDateTime dataAtualizacao;
 
 
-    @OneToOne
+    @OneToOne(optional = false)
     @JoinColumn(name = "aluno_id")
     private Aluno aluno;
 
