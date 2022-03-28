@@ -23,6 +23,8 @@ public class App {
         Endereco endereco = new Endereco("Av. Paulista", 777, "5 andar", "Bela Vista",
                 "São Paulo", "SP", "04566-333");
 
+        alunoService.inserirComEndereco(aluno3, endereco);
+
         Disciplina disciplina3 = new Disciplina("Matemática", 5000);
         disciplinaService.inserir(new Disciplina("História", 4000));
         disciplinaService.inserir(new Disciplina("Física", 3000));
