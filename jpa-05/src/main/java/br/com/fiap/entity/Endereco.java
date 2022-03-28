@@ -65,6 +65,7 @@ public class Endereco implements Serializable {
 
 
     @OneToOne(optional = false)
+    @MapsId
     @JoinColumn(name = "aluno_id")
     private Aluno aluno;
 

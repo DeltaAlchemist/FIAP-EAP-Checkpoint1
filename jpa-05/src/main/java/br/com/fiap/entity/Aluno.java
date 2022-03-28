@@ -51,7 +51,8 @@ public class Aluno implements Serializable {
     @Column(name = "dt_atualizacao")
     private LocalDateTime dataAtualizacao;
 
-    @OneToOne(mappedBy = "aluno")
+    @OneToOne(mappedBy = "aluno", cascade = CascadeType.ALL)
+    @PrimaryKeyJoinColumn
     private Endereco endereco;
 
     public Long getId() {

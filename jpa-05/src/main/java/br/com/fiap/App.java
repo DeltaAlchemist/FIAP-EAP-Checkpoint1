@@ -31,5 +31,7 @@ public class App {
 
         Aluno aluno = alunoService.obter(3L);
         System.out.println(aluno);
+
+        alunoService.remover(3L);
     }
 }
