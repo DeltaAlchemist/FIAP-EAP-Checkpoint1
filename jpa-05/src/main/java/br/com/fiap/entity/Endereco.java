@@ -164,4 +164,11 @@ public class Endereco implements Serializable {
     public void setAluno(Aluno aluno) {
         this.aluno = aluno;
     }
+
+    // Methods
+    @Override
+    public String toString() {
+        return "\n" + this.getRua() + "\n" + this.getNumero() + "\n" + this.getComplemento() + "\n" +
+                this.getBairro() + "\n" + this.getCidade() + "\n" + this.getUf() + " - " + this.getCep();
+    }
 }
