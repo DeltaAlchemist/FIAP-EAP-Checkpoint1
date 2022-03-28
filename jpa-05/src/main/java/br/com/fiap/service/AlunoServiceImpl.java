@@ -2,7 +2,9 @@ package br.com.fiap.service;
 
 
 import br.com.fiap.dao.impl.AlunoDAOImpl;
+import br.com.fiap.dao.impl.EnderecoDAOImpl;
 import br.com.fiap.entity.Aluno;
+import br.com.fiap.entity.Endereco;
 
 import java.util.List;
 
@@ -11,9 +13,11 @@ public class AlunoServiceImpl extends GenericService<Aluno, Long> {
     private static AlunoServiceImpl instance = null;
 
     private AlunoDAOImpl alunoDAO;
+    private EnderecoDAOImpl enderecoDAO;
 
     public AlunoServiceImpl() {
         alunoDAO = AlunoDAOImpl.getInstance();
+        enderecoDAO = EnderecoDAOImpl.getInstance();
     }
 
     public static AlunoServiceImpl getInstance() {
@@ -24,6 +28,19 @@ public class AlunoServiceImpl extends GenericService<Aluno, Long> {
     public void inserir(Aluno instance) {
         try {
             alunoDAO.salvar(instance, getEntityManager());
+        } catch (Exception e) {
+            e.printStackTrace();
+            getEntityManager().getTransaction().rollback();
+        } finally {
+            closeEntityManager();
+        }
+    }
+
+    public void inserirComEndereco(Aluno aluno, Endereco endereco) {
+        try {
+            alunoDAO.salvar(aluno, getEntityManager());
+            endereco.setAluno(aluno);
+            enderecoDAO.salvar(endereco, getEntityManager());
         } catch (Exception e) {
             e.printStackTrace();
             getEntityManager().getTransaction().rollback();
