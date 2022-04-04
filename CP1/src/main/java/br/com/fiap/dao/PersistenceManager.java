@@ -1,5 +1,7 @@
 package br.com.fiap.dao;
 
+import javax.persistence.*;
+
 public class PersistenceManager {
 
     private static PersistenceManager instance = null;

@@ -5,6 +5,8 @@ import br.com.fiap.dao.GenericDAO;
 import java.io.Serializable;
 import java.util.List;
 
+import javax.persistence.*;
+
 public abstract class HibernateGenericDAO<T extends Serializable, PK extends Serializable> implements GenericDAO<T, PK> {
 
     private Class<T> type;
