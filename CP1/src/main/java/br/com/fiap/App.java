@@ -3,6 +3,8 @@ package br.com.fiap;
 import br.com.fiap.entity.Livro;
 import br.com.fiap.service.LivroServiceImpl;
 
+import java.util.List;
+
 public class App {
 
     public static void main(String[] args) {
@@ -28,7 +30,11 @@ public class App {
                 1)
         );
 
-        livroService.listar();
+        List<Livro> livros = livroService.listar();
+
+        for (Livro livro : livros) {
+            System.out.println(livro);
+        }
 
         livroService.remover(3L);
 
