@@ -18,13 +18,15 @@ public class App {
                 2,
                 LocalDate.of(1997, 1, 1))
         );
-        livroService.inserir(new Livro(
+        
+        Livro livro2 = new Livro(
                 "Dias que a internet da FIAP não funcionou",
                 "Benicio",
                 "978-0-7334-2608-4",
                 1,
-                LocalDate.of(1993, 4, 4))
-        );
+                LocalDate.of(1993, 4, 4));
+        
+        livroService.inserir(livro2);
         livroService.inserir(new Livro(
                 "Alguém me ajuda",
                 "Douglas Adams",
@@ -40,15 +42,9 @@ public class App {
         }
 
         livroService.remover(3L);
-        
-        Livro livro = livroService.obter(2L);
-
-        livroService.atualizar((new Livro(
-                "Dias que a internet da FIAP não funcionou",
-                "Benicio",
-                "978-0-7334-2608-4",
-                3, // novo valor de edição
-                LocalDate.of(1997, 1, 1))
+        //Atualizar edição
+        livro2.setEdicao(3);
+        livroService.atualizar(livro2);
         ));
 
     }
