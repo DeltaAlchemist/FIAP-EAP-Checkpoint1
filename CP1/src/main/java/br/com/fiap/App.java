@@ -45,7 +45,6 @@ public class App {
         //Atualizar edição
         livro2.setEdicao(3);
         livroService.atualizar(livro2);
-        ));
-
+    
     }
 }
