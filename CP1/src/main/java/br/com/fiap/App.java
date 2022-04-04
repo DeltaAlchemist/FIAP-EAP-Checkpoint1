@@ -40,6 +40,8 @@ public class App {
         }
 
         livroService.remover(3L);
+        
+        Livro livro = livroService.obter(2L);
 
         livroService.atualizar((new Livro(
                 "Dias que a internet da FIAP não funcionou",
