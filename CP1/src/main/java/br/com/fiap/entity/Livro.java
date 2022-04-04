@@ -23,6 +23,7 @@ public class Livro implements Serializable {
         this.autor = autor;
         this.isbn = isbn;
         this.edicao = edicao;
+        this.dataPublicacao = dataPublicacao;
     }
 
     @Id
